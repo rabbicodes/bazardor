@@ -1,8 +1,15 @@
-export interface IProduct{
-    id: number;
-  image: "string";
-  nameBn: "string";
-  today: number;
+export interface IProduct {
+  id: number;
+  slug: string;
+  nameBn: string;
+  category: string;
+  categoryNameBn: string;
   unit: string;
-  change: { dir: string; pct: number };
+  image: string;
+  today: number;
+  yesterday: number;
+  lastWeek: number;
+  lastMonth: number;
+  change: { dir: "up" | "down" | "flat"; pct: number };
+  markets: { market: string; division: string; min: number; max: number }[];
 }
