@@ -1,4 +1,5 @@
 import { IProduct } from "@/type/ProductType";
+import Link from "next/link";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 interface ProductCardProps {
@@ -25,6 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       : "text-gray-500";
 
   return (
+    <Link href={`/products/${product.id}`}>
     <div className="rounded-2xl border border-gray-200 bg-[#fafcfa] p-5">
 
       <div className="flex items-center gap-4">
@@ -58,6 +60,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </span>
       </div>
     </div>
+    </Link>
   );
 };
 
