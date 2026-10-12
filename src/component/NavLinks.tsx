@@ -16,12 +16,12 @@ const NavLinks = async() => {
     const categories:ICategory[] = await res.json();
     
     return (
-        <div className='flex gap-6 px-7 py-4 max-w-7xl mx-auto '>
+        <div className='flex gap-6 px-7 py-4 max-w-7xl mx-auto border border-gray-200 '>
             {
                 categories.map(category=>{
                     return(
                         <div key={category.id}>
-                            <Link className='flex items-center text-[20px] font-semibold ' href={`/category/${category.slug}`}><span>{category.icon}</span><h1>{category.nameBn}</h1></Link>
+                            <Link className='flex items-center text-[16px] font-semibold ' href={`/category/${category.slug}`}><span>{category.icon}</span><h1>{category.nameBn}</h1></Link>
 
                         </div>
                     )

@@ -1,3 +1,4 @@
+import CategoryDetailsPage from '@/app/category/[Id]/page';
 import ProductCard from '@/component/ProductCard';
 import { IProduct } from '@/type/ProductType';
 import React from 'react';
@@ -21,6 +22,7 @@ const AllProduct = async() => {
         return (
           <div key={product.id}>
             <ProductCard key={product.id} product={product}></ProductCard>
+            <CategoryDetailsPage key={product.id} product = {product }></CategoryDetailsPage>
           </div>
           
         );

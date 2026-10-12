@@ -16,7 +16,7 @@ const Marquee = async () => {
   const products: IProduct[] = await res.json();
   return (
     
-      <div className="border border-gray-200 p-4 mt-6">
+      <div className="border border-gray-200 p-4 bg-white">
         <MarqueeText direction="right" duration={10}>
           {products.map((product) => {
             return (

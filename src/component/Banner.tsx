@@ -3,7 +3,8 @@ import Image from 'next/image';
 const Banner = () => {
   const date = new Date().toLocaleDateString("bn-bd", { dateStyle: "full" });
   return (
-    <header className='grid grid-cols-3 max-w-7xl mx-auto p-4 items-center border border-gray-200 mt-6 m-4 rounded-[20px]'>
+    <div className='p-4'>
+    <header className='grid grid-cols-3 max-w-7xl p-4 mx-auto bg-white items-center border border-gray-200 mt-6 m-4 rounded-[20px]'>
     <div className='col-span-2 space-y-4'>
       <div >
        <div className="badge badge-soft badge-success text-green-700">{date}</div>
@@ -24,6 +25,7 @@ const Banner = () => {
 <Image src={banner} alt='banner' height={800} width={800}></Image>
     </div>
     </header>
+    </div>
   );
 };
 
