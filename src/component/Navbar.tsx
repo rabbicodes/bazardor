@@ -40,8 +40,8 @@ const Navbar =  async() => {
       </div>
 
      <div className="flex gap-6">
-        <button className="text-[16px] font-semibold cursor-pointer">সাইন ইন </button>
-        <button className="bg-green-700 text-[16px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px]">সাইন আপ </button>
+        <Link href="/sign-in"><button className="text-[16px] font-semibold cursor-pointer">সাইন ইন </button></Link>
+       <Link href='/sign-up'> <button className="bg-green-700 text-[16px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px]">সাইন আপ </button></Link>
    </div>
     </div>
     <NavLinks categories={categories}></NavLinks>
