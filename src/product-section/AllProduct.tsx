@@ -12,7 +12,7 @@ const AllProduct = async() => {
       }
       const products: IProduct[] = await res.json();
     return (
-        <div className='max-w-7xl mx-auto '>
+        <div className='max-w-7xl mx-auto ' id='allProduct'>
             <div className='px-4'>
                 <h1 className='text-[32px] font-bold'>সব পণ্য</h1>
             <p className='text-gray-400'>মোট {products.length}টি পণ্য দেখানো হচ্ছে</p>

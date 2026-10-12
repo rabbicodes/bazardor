@@ -1,4 +1,4 @@
-import SortingDropdown from "@/component/SortingDropdown";
+import ProductSection from "@/component/ProductSection";
 import { IProduct } from "@/type/ProductType";
 
 interface PageProps {
@@ -28,7 +28,7 @@ const CategoryDetailsPage = async ({ params }: PageProps) => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center  p-4 border border-gray-200 mt-6 rounded-[20px] bg-gray-50 ">
+      <div className="flex justify-between items-center p-4 border border-gray-200 mt-6 rounded-[20px] bg-gray-50 ">
         <div className="flex items-center gap-4">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f0] text-[30px]">
             {categories.icon}
@@ -43,14 +43,9 @@ const CategoryDetailsPage = async ({ params }: PageProps) => {
         </div>
       </div>
 
-      <div className="m-9 flex justify-between items-center ">
-        <p>মোট ${products.length}টি পণ্য দেখানো হচ্ছে</p>
-        <div>
-         <SortingDropdown products={products}></SortingDropdown>
-        </div>
+      <div className="mt-6">
+        <ProductSection products={products} />
       </div>
-
-     
     </div>
   );
 };

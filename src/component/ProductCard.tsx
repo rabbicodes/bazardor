@@ -26,8 +26,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
       : "text-gray-500";
 
   return (
-    <Link href={`/products/${product.id}`}>
-    <div className="rounded-2xl border border-gray-200 bg-[#fafcfa] p-5">
+    <Link href={`/products/${product.id}`} >
+    <div className="rounded-2xl border border-gray-200 hover:border-gray-400 bg-[#fafcfa] p-5">
 
       <div className="flex items-center gap-4">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f0] text-3xl">

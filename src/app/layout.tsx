@@ -3,6 +3,7 @@ import { Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/Navbar";
 import Marquee from "@/component/Marquee";
+import Footer from "@/component/Footer";
 
 const notosansbengali = Noto_Sans_Bengali({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main>
           {children}
         </main>
+        <Footer/>
         
         </body>
     </html>

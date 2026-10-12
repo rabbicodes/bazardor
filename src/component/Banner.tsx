@@ -1,5 +1,6 @@
 import banner from '@/assets/bazar-hero.png'
 import Image from 'next/image';
+import Link from 'next/link';
 const Banner = () => {
   const date = new Date().toLocaleDateString("bn-bd", { dateStyle: "full" });
   return (
@@ -18,7 +19,7 @@ const Banner = () => {
       </div>
       <div>
         
-         <button className="bg-green-700 text-[18px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px]">সব পণ্য দেখুন </button>
+         <Link href='#allProduct'><button className="bg-green-700 text-[18px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px] ">সব পণ্য দেখুন </button></Link>
       </div>
     </div>
     <div className='col-span-1'>
