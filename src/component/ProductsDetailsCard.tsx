@@ -1,8 +1,11 @@
 import { IProduct } from "@/type/ProductType";
-import React from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
+
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import PriceSummaryCard from "./PriceSummaryCard";
 import TodayMarketPrice from "./TodayMarketPrice";
+import Link from "next/link";
 
 const toBn = (n: number) =>
   n.toLocaleString("bn-BD", {
@@ -21,11 +24,16 @@ const ProductsDetailsCard = ({ product }: { product: IProduct }) => {
   const diff = product.yesterday - product.today;
   const unit = unitBn[product.unit] ?? product.unit;
   return (
-    <div>
-    <div className="flex justify-between items-center max-w-7xl mx-auto p-4 border border-gray-200 mt-6 rounded-[20px] bg-gray-50 ">
-    <div>
-      <h1>হোম </h1>
+    <div className=" max-w-7xl mx-auto">
+      <div className="flex items-center text-[16px] m-4 gap-4">
+      <Link href='/'><h1>হোম</h1></Link>
+      <span><MdOutlineKeyboardArrowRight /></span>
+       <Link href={`/category/${product.category}`}><h1>{product.categoryNameBn}</h1></Link>
+       <span><MdOutlineKeyboardArrowRight /></span>
+         <h1>{product.nameBn}</h1>
     </div>
+    <div className="flex justify-between items-center p-4 border border-gray-200 mt-6 rounded-[20px] bg-gray-50 ">
+    
     
       <div className="flex items-center gap-4">
         <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f0] text-[30px]">
