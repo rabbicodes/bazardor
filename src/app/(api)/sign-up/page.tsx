@@ -175,7 +175,7 @@ console.log(resData,error);
               <div className="h-px flex-1 bg-[#dce4dc]" />
             </div>
 
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
               <Button
                 type="button"
                 variant="secondary"

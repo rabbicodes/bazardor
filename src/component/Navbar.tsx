@@ -22,15 +22,15 @@ const Navbar =  async() => {
 
   return (
     <div className="bg-[#fafcfa]">
-    <div className="flex justify-between items-center max-w-7xl mx-auto p-4  ">
-      <div className="flex gap-2 items-center ">
+    <div className="flex  justify-center sm:justify-between  items-center max-w-7xl mx-auto p-4  ">
+      <div className="sm:flex gap-2 items-center ">
         <Link href='/'>
-        <Image
+        <Image 
           src={logo}
           alt="বাজার দর লোগো"
           height={40}
           width={40}
-          className="object-contain"
+          className="object-contain "
           priority
         />
         </Link>

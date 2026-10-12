@@ -16,13 +16,13 @@ const TodayCheapPage = async () => {
     .slice(0, 6);
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex items-center p-4">
-        <span className="text-[32px] text-green-500">
+      <div className="flex items-center p-3 sm:p-4">
+        <span className="text-2xl sm:text-[32px] text-green-500">
           <TiArrowSortedDown />
         </span>
-        <h1 className="text-[32px] font-bold">আজ দাম কমেছে </h1>
+        <h1 className="text-2xl sm:text-[32px] font-bold">আজ দাম কমেছে </h1>
       </div>
-       <div className="grid grid-cols-3 gap-4 p-4">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 p-3 sm:p-4">
       {products.map((product) => {
         return (
           <div key={product.id}>

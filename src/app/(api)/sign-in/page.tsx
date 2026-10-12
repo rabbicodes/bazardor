@@ -149,10 +149,10 @@ const SignInPage = () => {
               <div className="h-px flex-1 bg-[#dce4dc]" />
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <Button
                onClick={handleGoogleSignIn}
-                className="h-10 min-w-0 rounded-lg border border-[#dfe7df] bg-transparent px-2 text-xs font-semibold text-[#283228] hover:bg-[#f1f5f1]"
+                className="h-10 min-w-0 rounded-lg border border-[#dfe7df] bg-transparent px-2  text-[10px] sm:text-xs font-semibold text-[#283228] hover:bg-[#f1f5f1]"
               >
                 <span className="text-base font-bold text-[#4285f4]"><FaGoogle /></span>
                 Google দিয়ে চালিয়ে যান
@@ -160,7 +160,7 @@ const SignInPage = () => {
 
               <Button
                 onClick={handleGithubSignIn }
-                className="h-10 min-w-0 rounded-lg border border-[#dfe7df] bg-transparent px-2 text-xs font-semibold text-[#283228] hover:bg-[#f1f5f1]"
+                className="h-10 min-w-0 rounded-lg border border-[#dfe7df] bg-transparent px-2 text-[10px] sm:text-xs font-semibold text-[#283228] hover:bg-[#f1f5f1]"
               >
                 <span className="text-base"><FaGithub /></span>
                 GitHub দিয়ে চালিয়ে যান

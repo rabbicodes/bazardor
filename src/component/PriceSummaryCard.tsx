@@ -23,25 +23,25 @@ const PriceSummaryCard = ({ product }: { product: IProduct }) => {
   const finalAverage = (firstAverage / product.markets.length).toFixed(2);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 bg-white rounded-[20px] my-6">
+    <div className="max-w-7xl mx-auto p-3 sm:p-4 bg-white rounded-[20px] my-4 sm:my-6">
       
-        <h1 className="text-[32px] font-semibold">দামের সারসংক্ষেপ</h1>
+        <h1 className="text-2xl sm:text-[32px] font-semibold">দামের সারসংক্ষেপ</h1>
 
-  <div className="grid grid-cols-3 items-center gap-4 ">
-        <div className="border border-gray-300 rounded-[20px] bg-white p-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-3 sm:gap-4 mt-3 sm:mt-0">
+        <div className="border border-gray-300 rounded-[20px] bg-white p-3 sm:p-4">
           <p>সর্বনিম্ন দাম</p>
-          <h1 className="text-green-500"> <span className="text-[32px] font-bold">{toBn(lowestPrice)}</span> টাকা</h1>
+          <h1 className="text-green-500"> <span className="text-2xl sm:text-[32px] font-bold">{toBn(lowestPrice)}</span> টাকা</h1>
           <p>সবচেয়ে কম দামের বাজার</p>
         </div>
           
-        <div className="border border-gray-300 rounded-[20px] bg-white p-4">
+        <div className="border border-gray-300 rounded-[20px] bg-white p-3 sm:p-4">
           <p>সর্বাধিক দাম</p>
-          <h1 className="text-red-500"> <span className="text-[32px] font-bold">{toBn(highestPrice)}</span> টাকা</h1>
+          <h1 className="text-red-500"> <span className="text-2xl sm:text-[32px] font-bold">{toBn(highestPrice)}</span> টাকা</h1>
           <p>সবচেয়ে বেশি দামের বাজার</p>
         </div>
-        <div className="border border-gray-300 rounded-[20px] bg-white p-4">
+        <div className="border border-gray-300 rounded-[20px] bg-white p-3 sm:p-4 sm:col-span-2 lg:col-span-1">
           <p>গড় দাম</p>
-          <h1 className="text-green-500"> <span className="text-[32px] font-bold">{toBn(Number(finalAverage))}</span> টাকা</h1>
+          <h1 className="text-green-500"> <span className="text-2xl sm:text-[32px] font-bold">{toBn(Number(finalAverage))}</span> টাকা</h1>
           <p>প্রতি কেজি-এর হিসাবে</p>
         </div>
           

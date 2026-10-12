@@ -9,19 +9,19 @@ const TodayMarketPrice = ({product}:{product:IProduct}) => {
     maximumFractionDigits: 2,
   })} টাকা`;
     return (
-        <div className='max-w-7xl mx-auto bg-white p-4 rounded-[20px]'>
-            <h1 className='text-[32px] font-semibold my-6 '>
+        <div className='max-w-7xl mx-auto bg-white p-3 sm:p-4 rounded-[20px]'>
+            <h1 className='text-2xl sm:text-[32px] font-semibold my-4 sm:my-6 '>
                 বাজারভিত্তিক আজকের দাম
             </h1>
        <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
-  <table className="w-full text-sm">
+  <table className="w-full min-w-140 text-xs sm:text-sm whitespace-nowrap">
     <thead>
       <tr className="text-gray-500">
-        <th className="px-6 py-4 text-left font-medium">বাজার</th>
-        <th className="px-6 py-4 text-left font-medium">বিভাগ</th>
-        <th className="px-6 py-4 text-right font-medium">সর্বনিম্ন</th>
-        <th className="px-6 py-4 text-right font-medium">সর্বাধিক</th>
-        <th className="px-6 py-4 text-right font-medium">গড়</th>
+        <th className="px-3 py-3 sm:px-6 sm:py-4 text-left font-medium">বাজার</th>
+        <th className="px-3 py-3 sm:px-6 sm:py-4 text-left font-medium">বিভাগ</th>
+        <th className="px-3 py-3 sm:px-6 sm:py-4 text-right font-medium">সর্বনিম্ন</th>
+        <th className="px-3 py-3 sm:px-6 sm:py-4 text-right font-medium">সর্বাধিক</th>
+        <th className="px-3 py-3 sm:px-6 sm:py-4 text-right font-medium">গড়</th>
       </tr>
     </thead>
     <tbody>
@@ -30,15 +30,15 @@ const TodayMarketPrice = ({product}:{product:IProduct}) => {
           key={ind}
           className="border-t border-gray-700/80 odd:bg-white even:bg-[#f1f5f1]"
         >
-          <td className="px-6 py-4 text-gray-800">{market.market}</td>
-          <td className="px-6 py-4 text-gray-600">{market.division}</td>
-          <td className="px-6 py-4 text-right text-gray-600">
+          <td className="px-3 py-3 sm:px-6 sm:py-4 text-gray-800">{market.market}</td>
+          <td className="px-3 py-3 sm:px-6 sm:py-4 text-gray-600">{market.division}</td>
+          <td className="px-3 py-3 sm:px-6 sm:py-4 text-right text-gray-600">
             {formatTaka(market.min)}
           </td>
-          <td className="px-6 py-4 text-right text-gray-600">
+          <td className="px-3 py-3 sm:px-6 sm:py-4 text-right text-gray-600">
             {formatTaka(market.max)}
           </td>
-          <td className="px-6 py-4 text-right font-semibold text-gray-900">
+          <td className="px-3 py-3 sm:px-6 sm:py-4 text-right font-semibold text-gray-900">
             {formatTaka((market.max + market.min) / 2)}
           </td>
         </tr>

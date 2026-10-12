@@ -25,9 +25,9 @@ const ProfilePage = () => {
  
 
   return (
-    <div className="min-h-screen bg-[#f1f5f1] px-4 py-12">
-      <div className="mx-auto max-w-138">
-        <div className="mb-5">
+    <div className="min-h-dvh bg-[#f1f5f1] px-3 py-6 sm:px-4 sm:py-12">
+      <div className="mx-auto w-full max-w-138">
+        <div className="mb-4 sm:mb-5">
           <h1 className="text-xl font-bold text-[#202820]">
             আমার প্রোফাইল
           </h1>
@@ -36,9 +36,9 @@ const ProfilePage = () => {
           </p>
         </div>
 
-        <div className="mb-4.5 flex items-center justify-between gap-3 rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-4">
+        <div className="mb-4 sm:mb-4.5 flex items-center justify-between gap-2 sm:gap-3 rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="relative h-12 w-13 shrink-0 overflow-hidden rounded-lg">
+            <div className="relative h-12 w-12 sm:w-13 shrink-0 overflow-hidden rounded-lg">
               <Image
                 src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp"
                 alt="Profile picture"
@@ -61,19 +61,19 @@ const ProfilePage = () => {
           <button
             onClick={()=>{signOut()}}
             type="button"
-            className="flex shrink-0 items-center gap-1 rounded-lg border border-[#ff5555] px-3 py-2 text-xs font-medium text-[#ef4444] transition hover:bg-red-50"
+            className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg border border-[#ff5555] px-2.5 py-2 sm:px-3 text-xs font-medium text-[#ef4444] transition hover:bg-red-50"
           >
             <IoLogOutOutline size={15} />
             সাইন আউট
           </button>
         </div>
 
-        <div className="rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-4 sm:p-4.5">
+        <div className="rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4.5">
           <h2 className="text-sm font-semibold text-[#263126]">
             তথ্য
           </h2>
 
-          <div className="mt-7 px-0 sm:px-3.75">
+          <div className="mt-4 sm:mt-7 px-0 sm:px-3.75">
             <form onSubmit={onSubmit}>
               <label
                 htmlFor="name"
@@ -88,12 +88,12 @@ const ProfilePage = () => {
                 type="text"
 
                 required
-                className="h-7.75 w-full rounded-lg border border-[#dce5dc] bg-transparent px-3 text-xs text-[#263126] outline-none transition focus:border-[#07883e] focus:ring-2 focus:ring-[#07883e]/10"
+                className="h-11 sm:h-7.75 w-full rounded-lg border border-[#dce5dc] bg-transparent px-3 text-base sm:text-xs text-[#263126] outline-none transition focus:border-[#07883e] focus:ring-2 focus:ring-[#07883e]/10"
               />
 
               <button
                 type="submit"
-                className="mt-3 h-7.75 w-full rounded-lg bg-[#078b40] text-xs font-semibold text-white shadow-[0_3px_3px_rgba(0,0,0,0.2)] transition hover:bg-[#067735]"
+                className="mt-3 h-11 sm:h-7.75 w-full rounded-lg bg-[#078b40] text-sm sm:text-xs font-semibold text-white shadow-[0_3px_3px_rgba(0,0,0,0.2)] transition hover:bg-[#067735]"
               >
                 আপডেট
               </button>
