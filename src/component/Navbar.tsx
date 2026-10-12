@@ -3,7 +3,14 @@ import Image from "next/image";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
 
-const Navbar =  () => {
+const Navbar =  async() => {
+  const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories')
+    if(!res.ok){
+        throw new Error('Data failed to fetch')
+    }
+    const categories= await res.json();
+    
+    
   
 
 
@@ -37,7 +44,7 @@ const Navbar =  () => {
         <button className="bg-green-700 text-[16px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px]">সাইন আপ </button>
    </div>
     </div>
-    <NavLinks/>
+    <NavLinks categories={categories}></NavLinks>
     </div>
     
   );

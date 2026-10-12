@@ -1,19 +1,19 @@
-
+'use client'
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
- interface ICategory {
+
+interface ICategory {
   id: string;
   slug: string;
   nameBn: string;
   icon: string;
 }
 
-const NavLinks = async() => {
-    const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories')
-    if(!res.ok){
-        throw new Error('Data failed to fetch')
-    }
-    const categories:ICategory[] = await res.json();
+const NavLinks = ({ categories }: { categories: ICategory[] }) => {
+   
+    const pathname = usePathname()
+    
     
     return (
         <div className='flex gap-6 px-7 py-4 max-w-7xl mx-auto border border-gray-200 '>
@@ -21,8 +21,10 @@ const NavLinks = async() => {
                 categories.map(category=>{
                     return(
                         <div key={category.id}>
-                            <Link className='flex items-center text-[16px] font-semibold ' href={`/category/${category.slug}`}><span>{category.icon}</span><h1>{category.nameBn}</h1></Link>
 
+                            <Link className={`flex items-center p-2 text-[16px] font-semibold ${pathname===`/category/${category.slug}`?'bg-green-700 p-2 rounded-[10px]  text-white':''}`} href={`/category/${category.slug}`}><span>{category.icon}</span><h1>{category.nameBn}</h1></Link>
+                            
+                           
                         </div>
                     )
                 })
@@ -32,4 +34,3 @@ const NavLinks = async() => {
 };
 
 export default NavLinks;
-
