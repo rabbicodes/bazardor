@@ -9,6 +9,7 @@ import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import toast from "react-hot-toast";
 
 const SessionManage = () => {
   const { data } = useSession();
@@ -33,7 +34,7 @@ const SessionManage = () => {
     </div>
     <li><Link href='/profile'> <FaUserAlt />আমার প্রোফাইল</Link></li>
     <li> <button
-                onClick={()=>{signOut()}}
+                onClick={()=>{signOut();toast.success('Sign Out succesfull')}}
                 type="button"
                 className="flex shrink-0 items-center gap-1 rounded-lg  px-3 py-2 text-xs font-medium text-[#ef4444] transition hover:bg-red-50"
               >
@@ -53,9 +54,9 @@ const SessionManage = () => {
         :<div className="flex gap-6 items-center">
         <Link
           href="/sign-in"
-          className="text-[16px] font-semibold cursor-pointer"
+          className="text-[16px] font-semibold   "
         >
-          সাইন ইন{" "}
+          <button className=" px-4 py-2 hover:border hover:border-green-700 hover:rounded-[10px] hover:px-4g hover:py-2 cursor-pointer">সাইন ইন{" "}</button>
         </Link>
         <Link
           href="/sign-up"

@@ -18,7 +18,7 @@ const NavLinks = ({ categories }: { categories: ICategory[] }) => {
 
     return (
         <div className='max-w-7xl mx-auto border border-gray-200'>
-            {/* মোবাইল: হ্যামবার্গার + ড্রপডাউন */}
+            
             <div className='relative md:hidden'>
                 <button
                     type='button'
@@ -48,7 +48,7 @@ const NavLinks = ({ categories }: { categories: ICategory[] }) => {
                 )}
             </div>
 
-            {/* ডেস্কটপ/ট্যাবলেট: আগের মতো পাশাপাশি লিস্ট */}
+            
             <div className='hidden md:flex gap-4 lg:gap-6 px-5 lg:px-7 py-4 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
                 {categories.map(category => (
                     <div key={category.id} className='shrink-0'>

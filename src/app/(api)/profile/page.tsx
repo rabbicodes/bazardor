@@ -2,12 +2,28 @@
 
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { IoLogOutOutline } from "react-icons/io5";
 import { updateUser, useSession, signOut } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 
 const ProfilePage = () => {
-  const { data } = useSession();
+  const { data, isPending } = useSession();
+  const router = useRouter();
+
+  React.useEffect(() => {
+    if (!isPending && !data?.user) {
+      router.replace("/");
+    }
+  }, [isPending, data, router]);
+
+  if (isPending || !data?.user) {
+    return (
+      <div className="flex min-h-dvh items-center justify-center bg-[#f1f5f1]">
+        <p className="text-sm text-[#078b40]">লোড হচ্ছে...</p>
+      </div>
+    );
+  }
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,11 +34,10 @@ const ProfilePage = () => {
     const resData = await updateUser({
       name: String(userData.name),
     });
-  toast.success('Updat Successful')
+
+    toast.success("Update Successful");
     console.log(resData);
   };
-
- 
 
   return (
     <div className="min-h-dvh bg-[#f1f5f1] px-3 py-6 sm:px-4 sm:py-12">
@@ -36,9 +51,9 @@ const ProfilePage = () => {
           </p>
         </div>
 
-        <div className="mb-4 sm:mb-4.5 flex items-center justify-between gap-2 sm:gap-3 rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4">
+        <div className="mb-4 flex items-center justify-between gap-2 sm:gap-3 rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="relative h-12 w-12 sm:w-13 shrink-0 overflow-hidden rounded-lg">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg sm:w-13">
               <Image
                 src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp"
                 alt="Profile picture"
@@ -50,30 +65,34 @@ const ProfilePage = () => {
 
             <div className="min-w-0">
               <h2 className="truncate text-sm font-semibold text-[#263126]">
-                {data?.user?.name}
+                {data.user.name}
               </h2>
               <p className="mt-1 truncate text-xs text-[#7b847b]">
-                {data?.user?.email}
+                {data.user.email}
               </p>
             </div>
           </div>
 
           <button
-            onClick={()=>{signOut()}}
+            onClick={async () => {
+              await signOut();
+              toast.success("Sign Out Successful");
+              router.replace("/sign-in");
+            }}
             type="button"
-            className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg border border-[#ff5555] px-2.5 py-2 sm:px-3 text-xs font-medium text-[#ef4444] transition hover:bg-red-50"
+            className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg border border-[#ff5555] px-2.5 py-2 text-xs font-medium text-[#ef4444] transition hover:bg-red-50 sm:px-3"
           >
             <IoLogOutOutline size={15} />
             সাইন আউট
           </button>
         </div>
 
-        <div className="rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4.5">
+        <div className="rounded-xl border border-[#dfe7df] bg-[#fbfcfb] p-3 sm:p-4">
           <h2 className="text-sm font-semibold text-[#263126]">
             তথ্য
           </h2>
 
-          <div className="mt-4 sm:mt-7 px-0 sm:px-3.75">
+          <div className="mt-4 px-0 sm:mt-7 sm:px-4">
             <form onSubmit={onSubmit}>
               <label
                 htmlFor="name"
@@ -86,14 +105,13 @@ const ProfilePage = () => {
                 id="name"
                 name="name"
                 type="text"
-
                 required
-                className="h-11 sm:h-7.75 w-full rounded-lg border border-[#dce5dc] bg-transparent px-3 text-base sm:text-xs text-[#263126] outline-none transition focus:border-[#07883e] focus:ring-2 focus:ring-[#07883e]/10"
+                className="h-11 w-full rounded-lg border border-[#dce5dc] bg-transparent px-3 text-base text-[#263126] outline-none transition focus:border-[#07883e] focus:ring-2 focus:ring-[#07883e]/10 sm:h-7.75 sm:text-xs"
               />
 
               <button
                 type="submit"
-                className="mt-3 h-11 sm:h-7.75 w-full rounded-lg bg-[#078b40] text-sm sm:text-xs font-semibold text-white shadow-[0_3px_3px_rgba(0,0,0,0.2)] transition hover:bg-[#067735]"
+                className="mt-3 h-11 w-full rounded-lg bg-[#078b40] text-sm font-semibold text-white shadow-[0_3px_3px_rgba(0,0,0,0.2)] transition hover:bg-[#067735] sm:h-7.75 sm:text-xs"
               >
                 আপডেট
               </button>
