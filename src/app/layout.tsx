@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/component/Navbar";
 import Marquee from "@/component/Marquee";
 import Footer from "@/component/Footer";
+import { Toaster } from "react-hot-toast";
 
 const notosansbengali = Noto_Sans_Bengali({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer/>
+           <Toaster />
         
         </body>
     </html>

@@ -1,4 +1,5 @@
 import ProductsDetailsCard from "@/component/ProductsDetailsCard";
+import { notFound } from "next/navigation";
 
 const ProductsDetailPage = async ({
   params,
@@ -7,6 +8,9 @@ const ProductsDetailPage = async ({
 }) => {
   const { Id } = await params;
   const res = await fetch(`https://openapi.programming-hero.com/api/bazardor/products/${Id}`)
+  if(!res.ok){
+    notFound()
+  }
   const products = await res.json();
 
   return <div>

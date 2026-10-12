@@ -1,5 +1,6 @@
 import ProductSection from "@/component/ProductSection";
 import { IProduct } from "@/type/ProductType";
+import { notFound } from "next/navigation";
 
 interface PageProps {
   params: Promise<{ Id: string }>;
@@ -12,7 +13,7 @@ const CategoryDetailsPage = async ({ params }: PageProps) => {
     `https://openapi.programming-hero.com/api/bazardor/categories/${Id}`,
   );
   if (!res.ok) {
-    throw new Error("Category data is not fetched");
+    notFound()
   }
   const categories = await res.json();
 
@@ -20,7 +21,7 @@ const CategoryDetailsPage = async ({ params }: PageProps) => {
     "https://openapi.programming-hero.com/api/bazardor/products",
   );
   if (!productRes.ok) {
-    throw new Error("Product data is not fetched");
+    notFound()
   }
   const productList: IProduct[] = await productRes.json();
 

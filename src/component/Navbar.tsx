@@ -2,6 +2,7 @@ import logo from "@/assets/logo-icon.png";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
+import SessionManage from "@/app/(api)/SessionManage";
 
 const Navbar =  async() => {
   const res = await fetch('https://openapi.programming-hero.com/api/bazardor/categories')
@@ -39,10 +40,7 @@ const Navbar =  async() => {
         </div>
       </div>
 
-     <div className="flex gap-6">
-        <Link href="/sign-in"><button className="text-[16px] font-semibold cursor-pointer">সাইন ইন </button></Link>
-       <Link href='/sign-up'> <button className="bg-green-700 text-[16px] font-semibold cursor-pointer text-white px-4 py-2 rounded-[10px]">সাইন আপ </button></Link>
-   </div>
+    <SessionManage></SessionManage>
     </div>
     <NavLinks categories={categories}></NavLinks>
     </div>

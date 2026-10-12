@@ -1,6 +1,7 @@
 
 import ProductCard from '@/component/ProductCard';
 import { IProduct } from '@/type/ProductType';
+import { notFound } from 'next/navigation';
 
 
 const AllProduct = async() => {
@@ -8,7 +9,7 @@ const AllProduct = async() => {
         "https://openapi.programming-hero.com/api/bazardor/products",
       );
       if (!res.ok) {
-        throw new Error("Data failed to fetch");
+        notFound()
       }
       const products: IProduct[] = await res.json();
     return (
