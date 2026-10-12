@@ -6,6 +6,10 @@ const client = new MongoClient(process.env.BETTER_AUTH_DB_URL!);
 const db = client.db('bazardor-database');
 
 export const auth = betterAuth({
+   trustedOrigins: [
+    "http://localhost:3000",
+    "https://bazardor-ns4etyfk8-rabbi-paturay.vercel.app/",
+  ],
     emailAndPassword: { 
     enabled: true, 
   }, 
