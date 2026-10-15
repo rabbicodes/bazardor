@@ -1,4 +1,3 @@
-
 'use client'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -8,11 +7,13 @@ import { FaUserAlt } from "react-icons/fa";
 import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const SessionManage = () => {
   const { data } = useSession();
+  const router = useRouter();
   return (
     <div>
       {data?.user? <div className="flex items-center gap-2">
@@ -34,7 +35,7 @@ const SessionManage = () => {
     </div>
     <li><Link href='/profile'> <FaUserAlt />আমার প্রোফাইল</Link></li>
     <li> <button
-                onClick={()=>{signOut();toast.success('Sign Out succesfull')}}
+                onClick={async()=>{await signOut();toast.success('Sign Out succesfull');router.replace('/')}}
                 type="button"
                 className="flex shrink-0 items-center gap-1 rounded-lg  px-3 py-2 text-xs font-medium text-[#ef4444] transition hover:bg-red-50"
               >
@@ -56,7 +57,7 @@ const SessionManage = () => {
           href="/sign-in"
           className="text-[16px] font-semibold   "
         >
-          <button className=" px-4 py-2 hover:border hover:border-green-700 hover:rounded-[10px] hover:px-4g hover:py-2 cursor-pointer">সাইন ইন{" "}</button>
+          <button className=" px-4 py-2 hover:border hover:border-green-700 hover:rounded-[10px] hover:px-4 hover:py-2 cursor-pointer">সাইন ইন{" "}</button>
         </Link>
         <Link
           href="/sign-up"
