@@ -33,13 +33,14 @@ const SignInPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
+            toast.success('Sign In Succesfull!')
+
    
     if(error){
         toast.error('Invalid email or password ')
-    } else{
-        toast.success('Sign In Succesfull!')
+    } 
 
-    }
+    
      
     console.log(resData, error);
   };
