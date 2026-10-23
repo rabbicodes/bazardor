@@ -14,6 +14,7 @@ interface ICategory {
 
 const NavLinks = ({ categories }: { categories: ICategory[] }) => {
     const pathname = usePathname()
+    
     const [open, setOpen] = useState(false)
 
     return (
@@ -38,7 +39,7 @@ const NavLinks = ({ categories }: { categories: ICategory[] }) => {
                                 key={category.id}
                                 href={`/category/${category.slug}`}
                                 onClick={() => setOpen(false)}
-                                className={`flex items-center gap-1 rounded-[10px] p-2 text-sm font-semibold ${pathname === `/category/${category.slug}` ? 'bg-green-700 text-white' : ''}`}
+                                className={`flex items-center gap-1 rounded-[10px] p-2 text-sm font-semibold ${pathname === `/category/${category.slug}` ? ' bg-green-700 text-white' : ''}`}
                             >
                                 <span>{category.icon}</span>
                                 <span>{category.nameBn}</span>
