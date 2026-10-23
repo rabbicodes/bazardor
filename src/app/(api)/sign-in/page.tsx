@@ -149,7 +149,7 @@ const SignInPage = () => {
               <div className="h-px flex-1 bg-[#dce4dc]" />
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-4">
               <Button
                onClick={handleGoogleSignIn}
                 className="h-10 min-w-0 rounded-lg border border-[#dfe7df] bg-transparent px-2  text-[10px] sm:text-xs font-semibold text-[#283228] hover:bg-[#f1f5f1]"
